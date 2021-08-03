@@ -1,6 +1,6 @@
 GRAMODAY-API
 
-To run the projects on a local server make sure you have MongoDB, nodeJS and Postman(App), Robo 3T(Optional App) installed on your machine.
+To run the projects on a local server make sure you have MongoDB, nodeJS, Postman(App) and Robo 3T(Optional App) installed on your machine.
 
 Steps:
 
