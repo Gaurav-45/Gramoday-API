@@ -1,0 +1,18 @@
+{
+  "name": "GramodayAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Gaurav",
+  "license": "ISC",
+  "dependencies": {
+    "@youmaole/easy-date-time": "^1.0.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5",
+    "uuid-by-string": "^3.0.4"
+  }
+}

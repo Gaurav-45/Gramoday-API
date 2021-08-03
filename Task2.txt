@@ -1,0 +1,161 @@
+This is Task 2:
+
+
+CASE - I:
+1. post request
+{
+    "userID": "Gaurav",
+    "marketID": "market-2",
+    "marketName": "Goa",
+    "cmdtyID": "cmdty-1",
+    "cmdtyName": "Apple",
+    "priceUnit": "Tonne",
+    "convFctr": 1000,
+    "price": 25000
+}
+
+Response:
+{
+    "status": "Success",
+    "reportID": "15ce4497-06c9-54a8-b2d8-cd0b822343fb"
+}
+
+2. Post request
+{
+    "userID": "Kristen",
+    "marketID": "market-2",
+    "marketName": "Goa",
+    "cmdtyID": "cmdty-1",
+    "cmdtyName": "Apple",
+    "priceUnit": "Pack",
+    "convFctr": 100,
+    "price": 45000
+}
+
+Response:
+{
+    "status": "Success",
+    "reportID": "15ce4497-06c9-54a8-b2d8-cd0b822343fb"
+}
+
+
+3. Post request
+{
+    "userID": "Pranav",
+    "marketID": "market-2",
+    "marketName": "Goa",
+    "cmdtyID": "cmdty-1",
+    "cmdtyName": "Apple",
+    "priceUnit": "Quintal",
+    "convFctr": 100,
+    "price": 900
+}
+
+Response:
+{
+    "status": "Success",
+    "reportID": "15ce4497-06c9-54a8-b2d8-cd0b822343fb"
+}
+
+Conclusion: For the same marketID-cmdtyID reportID( aggregated report ) is same after posting a user report
+
+
+4. Get request : localhost:3000/reports?reportID=15ce4497-06c9-54a8-b2d8-cd0b822343fb
+Response:
+{
+    "users": [
+        "Gaurav",
+        "Kristen",
+        "Pranav"
+    ],
+    "_id": "15ce4497-06c9-54a8-b2d8-cd0b822343fb",
+    "cmdtyName": "Apple",
+    "cmdtyID": "cmdty-1",
+    "marketID": "market-2",
+    "marketName": "Goa",
+    "timestamp": 1627985063327,
+    "priceUnit": "Kg",
+    "price": 161.33333333333334,
+    "__v": 0
+}
+
+Conclusion: the price is the mean price(in kgs) of all the user reports price and user array contains 
+            userID of all the users who submitted the report for a marketID-cmdtyID.
+
+
+
+CASE 2:
+
+1. POST request:
+{
+    "userID": "User-1",
+    "marketID": "market-3",
+    "marketName": "Mumbai",
+    "cmdtyID": "cmdty-1",
+    "cmdtyName": "Apple",
+    "priceUnit": "Quinal",
+    "convFctr": 100,
+    "price": 1100
+}
+
+Response:
+{
+    "status": "Success",
+    "reportID": "ed99d1ac-5a54-5670-91a2-8f3be6dd784d"
+}
+
+2. Post request:
+{
+    "userID": "User-1",
+    "marketID": "market-3",
+    "marketName": "Mumbai",
+    "cmdtyID": "cmdty-5",
+    "cmdtyName": "Oranges",
+    "priceUnit": "Tonnes",
+    "convFctr": 1000,
+    "price": 7000
+}
+
+Response:
+{
+    "status": "Success",
+    "reportID": "8c426703-f806-5bdd-9bc3-ef3c5669b0ab"
+}
+
+Conclusion: For different marketID-cmdtyID aggregated report is saved in different reportID.
+
+3. Get request: localhost:3000/reports?reportID=8c426703-f806-5bdd-9bc3-ef3c5669b0ab
+
+Response:
+{
+    "users": [
+        "User-1"
+    ],
+    "_id": "8c426703-f806-5bdd-9bc3-ef3c5669b0ab",
+    "cmdtyName": "Oranges",
+    "cmdtyID": "cmdty-5",
+    "marketID": "market-3",
+    "marketName": "Mumbai",
+    "timestamp": 1627985141692,
+    "priceUnit": "Kg",
+    "price": 7,
+    "__v": 0
+}
+
+4. Get request: localhost:3000/reports?reportID=ed99d1ac-5a54-5670-91a2-8f3be6dd784d
+
+Response:
+{
+    "users": [
+        "User-1"
+    ],
+    "_id": "ed99d1ac-5a54-5670-91a2-8f3be6dd784d",
+    "cmdtyName": "Apple",
+    "cmdtyID": "cmdty-1",
+    "marketID": "market-3",
+    "marketName": "Mumbai",
+    "timestamp": 1627985160256,
+    "priceUnit": "Kg",
+    "price": 11,
+    "__v": 0
+}
